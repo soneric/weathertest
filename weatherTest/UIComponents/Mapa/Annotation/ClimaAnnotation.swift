@@ -13,11 +13,13 @@ class ClimaAnnotation: NSObject, MKAnnotation {
     
     var coordinate: CLLocationCoordinate2D
     var listaModel: ListaModel?
+    var title: String?
     
     init(listaModel: ListaModel) {
         let myLocation = CLLocationCoordinate2D(latitude: listaModel.lat!, longitude: listaModel.lon!)
 
         self.coordinate = myLocation
         self.listaModel = listaModel
+        self.title =  listaModel.temperatura! + "º" 
     }
 }

@@ -69,9 +69,10 @@ class MapaView: UIView, MKMapViewDelegate, CLLocationManagerDelegate {
         var frame = anotacaoView.frame
         frame.size.height = 40
         frame.size.width = 40
-            
-        anotacaoView.frame = frame
+        anotacaoView.canShowCallout = true
+        anotacaoView.calloutOffset = CGPoint(x: -5, y: 5)
         
+        anotacaoView.frame = frame
         
         return anotacaoView
         
