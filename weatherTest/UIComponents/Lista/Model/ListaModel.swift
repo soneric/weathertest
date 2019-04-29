@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 struct ListaModel{
     var id: Int?
     var estado: String?
     var iconeURL: String?
+    var iconImage: UIImage?
     var ceu: String?
     var temperatura: String?
     var min: String?
@@ -19,4 +21,5 @@ struct ListaModel{
     var dist: String?
     var lat: Double?
     var lon: Double?
+    
 }

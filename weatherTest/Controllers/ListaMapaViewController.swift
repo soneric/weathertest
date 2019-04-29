@@ -123,6 +123,7 @@ class ListaMapaViewController: UIViewController, CLLocationManagerDelegate {
                 model.dist = Int(dist).description
                 model.lat = list.coord?.lat
                 model.lon = list.coord?.lon
+                model.iconImage = list.weather![0].iconImage
                 
                 result.append(model)
             }
@@ -133,7 +134,7 @@ class ListaMapaViewController: UIViewController, CLLocationManagerDelegate {
     
     func changeTempAPI() {
         DispatchQueue.main.async {
-            self.countToReload = 60//5
+            self.countToReload = 180//5
             openWeatherRepositories().getFromDistLatAndLong(lat: Double(self.actualLocation!.coordinate.latitude), lon:Double(self.actualLocation!.coordinate.longitude), isCelsius: self.tempCelsius){ (result: openWeatherRepositories.Result ) in
                 switch result {
                 case .success(let object):
@@ -155,10 +156,13 @@ class ListaMapaViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0] as CLLocation
         self.actualLocation = userLocation
-        if !self.mainView.isListaViewVisible(){
-            if let coordenadas = gerenciadorLocalizacao.location?.coordinate{
-                let regiao = MKCoordinateRegion(center: coordenadas, latitudinalMeters: 50000, longitudinalMeters: 50000)
-                self.mainView.changeMapUserPosition(regiao: regiao)
+        
+        if self.countToReload == 5 {
+            if !self.mainView.isListaViewVisible(){
+                if let coordenadas = self.gerenciadorLocalizacao.location?.coordinate{
+                    let regiao = MKCoordinateRegion(center: coordenadas, latitudinalMeters: 50000, longitudinalMeters: 50000)
+                    self.mainView.changeMapUserPosition(regiao: regiao)
+                }
             }
         }
         

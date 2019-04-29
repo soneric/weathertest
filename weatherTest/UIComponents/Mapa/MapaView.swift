@@ -53,7 +53,10 @@ class MapaView: UIView, MKMapViewDelegate, CLLocationManagerDelegate {
         self.mapView.removeAnnotations(allAnnotations)
         for list in listaModel {
                 let anotacao = ClimaAnnotation(listaModel: list)//MKPointAnnotation()
-                self.mapView.addAnnotation(anotacao)
+            
+                DispatchQueue.main.async {
+                    self.mapView.addAnnotation(anotacao)
+                }
             
         }
     }
@@ -62,23 +65,12 @@ class MapaView: UIView, MKMapViewDelegate, CLLocationManagerDelegate {
         let anotacaoView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
         let myAnnotation = annotation as! ClimaAnnotation
         //if annotation is MKUserLocation {
-        
-            if myAnnotation.listaModel?.iconeURL != nil {
-                if let url = URL(string: "https://openweathermap.org/img/w/" + (myAnnotation.listaModel?.iconeURL!)! + ".png"){
-                    let data = try? Data(contentsOf: url)
-                    anotacaoView.image = UIImage(data: data!)
-                }else {
-                    print("imagem nao encontrada")
-                }
-            }
-        
-            //anotacaoView.image = UIImage(named: "human")
-            var frame = anotacaoView.frame
-            frame.size.height = 40
-            frame.size.width = 40
+        anotacaoView.image = myAnnotation.listaModel?.iconImage
+        var frame = anotacaoView.frame
+        frame.size.height = 40
+        frame.size.width = 40
             
-            anotacaoView.frame = frame 
-        //}
+        anotacaoView.frame = frame
         
         
         return anotacaoView

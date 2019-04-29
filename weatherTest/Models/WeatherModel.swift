@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct WeatherModel {
     var message: String?
@@ -61,4 +62,5 @@ struct Weather {
     var main: String?
     var description: String?
     var icon: String?
+    var iconImage: UIImage?
 }

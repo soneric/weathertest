@@ -64,8 +64,9 @@ class ListaView: UIView, UITableViewDataSource, UITableViewDelegate {
         cell.maxLabel.text = listaTemp[indexPath.row].max
         cell.minLabel.text = listaTemp[indexPath.row].min
         cell.distLabel.text = listaTemp[indexPath.row].dist! + "KM"
+        cell.iconImage.image = listaTemp[indexPath.row].iconImage
         
-        
+        /*
         if listaTemp[indexPath.row].iconeURL != nil {
             if let url = URL(string: "https://openweathermap.org/img/w/" + listaTemp[indexPath.row].iconeURL! + ".png"){
                 let data = try? Data(contentsOf: url)
@@ -73,7 +74,7 @@ class ListaView: UIView, UITableViewDataSource, UITableViewDelegate {
             }else {
                 print("imagem nao encontrada")
             }
-        }
+        }*/
         
         return cell
     }

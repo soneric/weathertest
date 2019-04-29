@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class openWeatherRepositories {
     
@@ -171,6 +172,13 @@ class openWeatherRepositories {
                         
                         if let icon = weatherAux["icon"] as? String {
                             weatherResult.icon = icon
+                            
+                            if let url = URL(string: "https://openweathermap.org/img/w/" + icon + ".png"){
+                                    let data = try? Data(contentsOf: url)
+                                weatherResult.iconImage = UIImage(data: data!)
+                            }else {
+                                print("imagem nao encontrada")
+                            }
                         }
                         
                         listAux.weather?.append(weatherResult)
