@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J5t-Tx-Kj1">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="D12-Lc-ebJ">
+            <objects>
+                <navigationController id="J5t-Tx-Kj1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xxa-Kn-vjC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Uhv-iH-yxt" kind="relationship" relationship="rootViewController" id="M5j-he-NFE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mfd-a3-VE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-204" y="110"/>
+        </scene>
+        <!--Dummy View Controller-->
+        <scene sceneID="90D-Sl-IH2">
+            <objects>
+                <viewController id="fwQ-hZ-Na9" customClass="DummyViewController" customModule="weatherTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9IH-mT-b2M">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0tD-ai-fkr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0tD-ai-fkr" firstAttribute="top" secondItem="uP9-A0-oIk" secondAttribute="top" id="3Ib-C4-1nS"/>
+                            <constraint firstItem="0tD-ai-fkr" firstAttribute="leading" secondItem="uP9-A0-oIk" secondAttribute="leading" id="5LT-Lm-iAp"/>
+                            <constraint firstAttribute="bottom" secondItem="0tD-ai-fkr" secondAttribute="bottom" id="Lhh-33-9TO"/>
+                            <constraint firstItem="0tD-ai-fkr" firstAttribute="trailing" secondItem="uP9-A0-oIk" secondAttribute="trailing" id="ndV-cY-djl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uP9-A0-oIk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1Ta-RU-OjE"/>
+                    <connections>
+                        <outlet property="mapaDummy" destination="0tD-ai-fkr" id="B6R-oQ-9b8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zwI-rB-1Lv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-191.30434782608697" y="846.42857142857144"/>
+        </scene>
+        <!--Desafio-->
+        <scene sceneID="I1o-LJ-XXi">
+            <objects>
+                <viewController id="Uhv-iH-yxt" customClass="ListaMapaViewController" customModule="weatherTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kZT-hQ-Ro7" customClass="ListaMapaView" customModule="weatherTest" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MER-3e-GAd" userLabel="Lista" customClass="ListaView" customModule="weatherTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bI9-nE-Ak3" userLabel="Mapa" customClass="MapaView" customModule="weatherTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="MER-3e-GAd" secondAttribute="bottom" id="NbI-Pg-Dzg"/>
+                            <constraint firstItem="bI9-nE-Ak3" firstAttribute="trailing" secondItem="04q-6g-uLy" secondAttribute="trailing" id="NdN-M4-H2r"/>
+                            <constraint firstItem="bI9-nE-Ak3" firstAttribute="leading" secondItem="04q-6g-uLy" secondAttribute="leading" id="TdN-jL-wbx"/>
+                            <constraint firstItem="MER-3e-GAd" firstAttribute="top" secondItem="04q-6g-uLy" secondAttribute="top" id="Xfo-tF-YzT"/>
+                            <constraint firstItem="bI9-nE-Ak3" firstAttribute="top" secondItem="04q-6g-uLy" secondAttribute="top" id="a5Z-p8-gaV"/>
+                            <constraint firstItem="MER-3e-GAd" firstAttribute="leading" secondItem="04q-6g-uLy" secondAttribute="leading" id="aOa-5i-kqO"/>
+                            <constraint firstItem="MER-3e-GAd" firstAttribute="trailing" secondItem="04q-6g-uLy" secondAttribute="trailing" id="foV-By-GhD"/>
+                            <constraint firstAttribute="bottom" secondItem="bI9-nE-Ak3" secondAttribute="bottom" id="y4q-qT-Rq2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="04q-6g-uLy"/>
+                        <connections>
+                            <outlet property="listaView" destination="MER-3e-GAd" id="SDo-WM-ECm"/>
+                            <outlet property="mapaView" destination="bI9-nE-Ak3" id="eVB-FG-uza"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Desafio" id="sCb-Wa-CNa">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Mapa" id="MiP-hA-ZFq">
+                                <connections>
+                                    <action selector="listaMapaButtonClicked:" destination="Uhv-iH-yxt" id="ULy-jY-ufW"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="temp" id="1Jh-qU-IV5">
+                                <connections>
+                                    <action selector="tempBarButtonClicked:" destination="Uhv-iH-yxt" id="tYt-eg-hF5"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="listaMapBarItem" destination="MiP-hA-ZFq" id="Oxc-X9-J82"/>
+                        <outlet property="tempBarItem" destination="1Jh-qU-IV5" id="4Ea-6Z-BMq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jCh-ea-cFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="737.68115942028987" y="109.82142857142857"/>
+        </scene>
+    </scenes>
+</document>
